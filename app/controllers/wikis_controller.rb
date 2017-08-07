@@ -1,4 +1,6 @@
 class WikisController < ApplicationController
+    before_action :user_check, only: [:edit, :update, :new, :create, :destroy]
+    
     def index
        @wikis = Wiki.all 
     end
@@ -57,5 +59,13 @@ class WikisController < ApplicationController
     private
     def wiki_params
         params.require(:wiki).permit(:title, :body)
+    end
+    
+    def user_check
+        @wiki = Wiki.find(params[:id])
+        unless user_signed_in?
+            flash[:notice] = "You must be logged in to do that."
+            redirect_to @wiki
+        end
     end
 end
