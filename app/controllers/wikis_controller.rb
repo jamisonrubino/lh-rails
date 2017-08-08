@@ -62,10 +62,10 @@ class WikisController < ApplicationController
     end
     
     def user_check
-        @wiki = Wiki.find(params[:id])
+        @wikis = Wiki.all
         unless user_signed_in?
             flash[:notice] = "You must be logged in to do that."
-            redirect_to @wiki
+            redirect_to @wikis
         end
     end
 end
