@@ -5,6 +5,7 @@
  gem 'devise'
  gem 'pundit'
  gem 'faker'
+ gem 'stripe'
  
  group :production do
    gem 'pg'
