@@ -40,9 +40,11 @@ class ChargesController < ApplicationController
     end
     
     def downgrade
-        current_user.standard!
-        flash[:notice] = "Your account was downgraded successfully."
-        redirect_to root_path
+        if current_user.standard!
+            current_user.wikis.update_all(private: false)
+            flash[:notice] = "Your account was downgraded successfully."
+            redirect_to root_path
+        end
     end
 
 end

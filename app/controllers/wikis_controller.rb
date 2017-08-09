@@ -58,11 +58,10 @@ class WikisController < ApplicationController
     
     private
     def wiki_params
-        params.require(:wiki).permit(:title, :body)
+        params.require(:wiki).permit(:title, :body, :private)
     end
     
     def user_check
-        # @wiki = Wiki.all
         unless user_signed_in?
             flash[:notice] = "You must be logged in to do that."
             redirect_to wikis_path

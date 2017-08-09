@@ -16,6 +16,14 @@
   <%= f.label :body %>
   <%= f.text_area :body, class: 'form-control', rows: 8, placehodler: "Enter post body." %>
   <div class="actions">
+    
+  <% if current_user.admin? || current_user.premium? %>
+    <div class="form-group">
+      <%= f.label :private, class: 'checkbox' do %>
+        <%= f.check_box :private %><span class="checkbox-label">Private wiki</span>
+      <% end %>
+    </div>
+  <% end %>
     <%= f.submit %>
   </div>
 <% end %>
