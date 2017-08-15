@@ -11,19 +11,19 @@
     <% end %>
         <% @all_wikis.each do |wiki| %>
             <% unless (user_signed_in? && current_user.id != wiki.user_id && wiki.private) || (!user_signed_in? && wiki.private) %>
-
-                <div class="row">
-                    <% if user_signed_in? %>
-                        <div class="col-sm-9">
-                    <% else %>
-                        <div class="col-sm-12">
-                            <% end %>
-                        <%= link_to wiki.title, wiki %></div>
-                    <% if user_signed_in? %>
-                        <div class="col-sm-1"><%= link_to "Edit", edit_wiki_path(wiki) %></div>
-                        <div class="col-sm-2"><%= link_to 'Destroy', wiki, method: :delete, data: { confirm: 'Are you sure?' } %></div>
-                    <% end %>
-                </div>
+                    <div class="row">
+                        <% if user_signed_in? %>
+                            <div class="col-sm-9">
+                        <% else %>
+                            <div class="col-sm-12">
+                                <% end %>
+                            <%= link_to wiki.title, wiki %></div>
+                        <% if user_signed_in? %>
+                            <div class="col-sm-1"><%= link_to "Edit", edit_wiki_path(wiki) %></div>
+                            <div class="col-sm-2"><%= link_to 'Destroy', wiki, method: :delete, data: { confirm: 'Are you sure?' } %></div>
+                        <% end %>
+                    </div>
+                <% #end %>
             <% end %>
         <% end %>
     <% if current_user %>

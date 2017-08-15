@@ -11,7 +11,7 @@
 
   <tbody>
     <% @wikis.each do |wiki| %>
-      <% unless (user_signed_in? && current_user.id != wiki.user_id && wiki.private) || (!user_signed_in? && wiki.private) %>
+
         <tr>
           <td><h2><%= wiki.title %></h2></td>
         </tr>
@@ -22,7 +22,7 @@
           <td><%= link_to 'Edit', edit_wiki_path(wiki) %></td>
           <td><%= link_to 'Destroy', wiki, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         </tr>
-      <% end %>
+
     <% end %>
   </tbody>
 </table>

@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   has_many :wikis
+  has_many :collaborators
   
   enum role: [:standard, :premium, :admin]
   

@@ -3,5 +3,11 @@
 <h2><%= @wiki.title %></h2>
 <p><%= markdown(@wiki.body) %></p>
 
-<%= link_to 'Edit', edit_wiki_path(@wiki) %> |
+<% if @wiki.private && @wiki.user_id == current_user.id && current_user.role == 'premium' %>
+    <% wiki_id = @wiki.id %>
+    <%= link_to "Edit collaborators", collaborators_path %>
+<% end %>
+<% if @collaborators.include?(current_user.id) || @wiki.user_id == current_user.id %>
+    <%= link_to 'Edit', edit_wiki_path(@wiki) %> |
+<% end %>
 <%= link_to 'Back', wikis_path %>

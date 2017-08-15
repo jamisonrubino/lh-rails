@@ -2,11 +2,12 @@ class WikisController < ApplicationController
     before_action :user_check, only: [:edit, :update, :new, :create, :destroy]
     
     def index
-       @wikis = Wiki.all 
+       @wikis = policy_scope(Wiki)
     end
     
     def show
         @wiki = Wiki.find(params[:id])
+        @collaborators = Collaborator.where(wiki_id: @wiki.id)
     end
     
     def new
@@ -54,7 +55,6 @@ class WikisController < ApplicationController
           render :show
         end
     end
-    
     
     private
     def wiki_params
