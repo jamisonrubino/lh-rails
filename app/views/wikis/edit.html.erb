@@ -1,11 +1,13 @@
-<h1>Editing Wiki</h1>
-
-<%= render 'form' %>
-
-
-<% if @wiki.private && @wiki.user_id == current_user.id && current_user.role == 'premium' %>
-    <% wiki_id = @wiki.id %>
-    <%= link_to "Edit collaborators", {:controller => "collaborators", :action => "index", :wiki => @wiki } %>
-<% end %>
-<%= link_to 'Show', @wiki %> |
-<%= link_to 'Back', wikis_path %>
+<div class="wiki-edit">
+    <h1>Editing Wiki</h1>
+    
+    <%= render 'form' %>
+    
+    
+    <% if @wiki.private && @wiki.user_id == current_user.id && current_user.role == 'premium' %>
+        <% wiki_id = @wiki.id %>
+        <%= link_to "Edit collaborators", {:controller => "collaborators", :action => "index", :wiki => @wiki } %> | 
+    <% end %>
+    <%= link_to 'Show', @wiki %> |
+    <%= link_to 'Back', wikis_path %>
+</div>

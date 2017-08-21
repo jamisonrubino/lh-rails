@@ -2,6 +2,10 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.home-link {
+    margin-left: 30px;
+}
+
 .center-block {
     margin: 0 auto;
 }
@@ -18,11 +22,19 @@
 .wikilist .row {
     width: 600px;
     margin: 0 auto;
-    border: 2px solid #000;
+    border: 2px solid #999;
 }
 
 .wikilist div[class^="col-sm-"]:not(:last-child) {
-    border-right: 1px solid #000;
+    border-right: 1px solid #999;
+}
+
+.wikilist .row:not(:last-child) {
+    border-bottom: 0;
+}
+
+.wikilist .row:first-child {
+    border-bottom: 2px solid #999;
 }
 
 a.new-wiki {

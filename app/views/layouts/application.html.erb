@@ -10,7 +10,7 @@
   <body>
   <div class="user-bar">
     <div class="pull-left">
-      <%= link_to "Home", root_path %>
+      <%= link_to "Home", root_path, class: "home-link" %>
     </div>
     <div class="pull-right">
       <% if user_signed_in? %>

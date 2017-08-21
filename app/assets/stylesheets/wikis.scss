@@ -2,6 +2,10 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.wiki-index, .wiki-show, .wiki-new, .wiki-edit {
+    padding: 0 30px;
+}
+
 .checkbox-label {
     margin: 0 20px;
 }
